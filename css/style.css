@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+
+    & main{
+        display: grid;
+        gap: 10px;
+
+        & .square {
+            width: 200px;
+            height: 200px;
+            font-size: 3rem;
+            display: grid;
+            place-content: center;
+        }
+
+        & .square:nth-child(1){
+            background-color: lightblue;
+            /* transform: translateX(80%); */
+            /* transform: rotate(180deg); */
+            /* transform: scaleX(1.5); */
+            /* transform: skewX(45deg); */
+
+            animation-name: rotate;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        & .square:nth-child(2){
+            background-color: lightgoldenrodyellow;
+            /* transform: translateY(-80%); */
+            /* transform: rotateX(45deg); */
+            /* transform: scaleY(1.5); */
+            /* transform: skewY(45deg); */
+
+            animation-name: slide;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        & .square:nth-child(3){
+            background-color: lightgreen;
+            /* transform: translate(80px, -100px); */
+            /* transform: rotate(45deg); */
+            /* transform: scale(1.5); */
+            /* transform: skew(45deg , 10deg); */
+
+            animation-name: slide;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+        }
+
+        & .square:hover{
+            background-color: rgba(137, 43, 226, 0.233);
+            transform: scale(1.5);
+            border-radius: 200px;
+        }
+
+        & .square{
+            /* transition-property: background-color, transform; */
+            transition-property: all;
+            /* transition-duration: 2s , 1s; */
+            transition-duration: 1s;
+            /* transition-delay: 1s; */
+
+            transition-timing-function: ease;
+            transition-timing-function: ease-in; /* slow then fast */
+            transition-timing-function: ease-out;/* fast then slow */
+            transition-timing-function: linear;
+        }
+    }
+}
+
+
+@keyframes slide {
+    0%{
+        transform: translateX(0);
+    }
+
+    33%{
+        transform: translateX(100%);
+    }
+
+    66%{
+        transform: translate(-100%);
+    }
+
+    100%{
+        transform: translateX(0%);
+    }
+
+}
+
+@keyframes rotate {
+    0%{
+        transform: translateX(0) rotate(0);
+        background-color: red;
+    }
+
+    33%{
+        transform: translateX(100%) rotate(180deg);
+        background-color: blue;
+    }
+
+    66%{
+        transform: translate(-100%) rotate(180deg);
+        background-color: greenyellow;
+    }
+
+    100%{
+        transform: translateX(0) rotate(0);
+        background-color: gold;
+    }
+
+}
